@@ -1,0 +1,40 @@
+// 共通のcss
+html,body,h1,h2,h3,h4,p,a,ul {
+    padding: 0;
+    margin: 0;
+    color: $font_color;
+}
+
+html,body {
+    font-size: 16px;
+    font-family: "Montserrat","游ゴシック",YuGothic,"ヒラギノ角ゴ ProN W3","Hiragino Kaku Gothic ProN","メイリオ",Meiryo,sans-serif;
+    background: #fff;
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+}
+
+// 共通のwrapper
+#content-wrapper {
+    margin-top: 100px;
+}
+
+.container {
+    width: 90%;
+    margin: auto;
+}
+
+// widgetのh2
+.widget {
+    li {
+        list-style: none;
+        padding: 8px 0;
+    }
+    h2 {
+        border-left: 4px solid $key_color_3;
+        margin: 20px 0;
+        padding-left: 10px;
+    }
+}

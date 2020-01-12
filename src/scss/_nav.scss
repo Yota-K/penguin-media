@@ -1,0 +1,47 @@
+#grobal-nav {
+    position: fixed;
+    top: 0;
+    left: 100vw;
+    width: 100vw;
+    height: 100vh;
+    transition: all 0.4s;
+    background: #fff;
+    z-index: 9999;
+    h2 {
+        margin: 40px 0 20px;
+    }
+    .nav-container {
+        margin: 100px 0;
+        #site-navigation {
+            width: 80vw;
+            margin: 0 10vw;
+            #header-menu {
+                margin-top: 40px;
+                li {
+                    list-style: none;
+                    a {
+                        color: $font_color;
+                        font-size: 2rem;
+                    }
+                }
+            }
+            .search-form {
+                .search-field {
+                    width: 50vw;
+                    height: 40px;
+                    font-size: 1.4rem;
+                }
+                .search-submit {
+                    padding: 6px;
+                    margin-left: 10px;
+                    font-size: 1.2rem;
+                }
+            }
+        }
+    }
+}
+
+.nav-active {
+    left: 0 !important;
+    transition: all 0.4s;
+}

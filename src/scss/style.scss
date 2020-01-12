@@ -1,0 +1,13 @@
+// テーマのcss
+@import 'variables';
+@import 'mixin';
+@import 'common';
+@import 'header';
+@import 'slider';
+@import 'nav';
+@import 'main.scss';
+@import 'search_form';
+@import 'footer';
+
+// swiperのcss
+@import '../../node_modules/swiper/css/swiper.min.css';

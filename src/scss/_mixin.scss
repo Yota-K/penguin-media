@@ -1,0 +1,34 @@
+$break_point: (
+    sm_size: 1024px,
+    xs_size: 600px,
+);
+
+// レスポンシブの設定
+@mixin media_queries($key) {
+    @media (max-width: map-get( $break_point, $key )) {
+        @content;
+    }
+}
+
+// カテゴリーのボタン
+@mixin category_button() {
+    display: inline-block;
+    border: 1px solid $key_color_2;
+    border-radius: 20px;
+    padding: 4px 12px 3px;
+    font-weight: 700;
+    font-size: 0.8rem;
+    transition: all 0.4s;
+    &:hover {
+        background: $key_color_3;
+        color: #fff;
+        transition: all 0.4s;
+    }
+}
+
+// 記事の日付
+@mixin post_date() {
+    display: inline-block;
+    margin: 10px 0;
+    padding-left: 10px;
+}

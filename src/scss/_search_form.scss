@@ -1,0 +1,16 @@
+.search-form {
+    position: relative;
+    display: inline-block;
+    .search-form-container {
+        .search-field {
+            border: 1px solid $key_color_2;
+        }
+        .search-submit {
+            position: absolute;
+            top: 0;
+            background: $key_color_3;
+            color: #fff;
+            cursor: pointer;
+        }
+    }
+}

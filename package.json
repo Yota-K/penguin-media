@@ -1,0 +1,23 @@
+{
+  "name": "penguin_media",
+  "version": "1.0.0",
+  "description": "ペンギンメディアのpackage.json。",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Yota-K",
+  "license": "ISC",
+  "devDependencies": {
+    "@fortawesome/fontawesome-free": "^5.12.0",
+    "@fortawesome/fontawesome-free-brands": "^5.0.13",
+    "css-loader": "^3.4.0",
+    "jquery": "^3.4.1",
+    "node-sass": "^4.13.0",
+    "sass-loader": "^8.0.0",
+    "style-loader": "^1.1.2",
+    "swiper": "^5.2.1",
+    "webpack": "^4.41.5",
+    "webpack-cli": "^3.3.10"
+  }
+}

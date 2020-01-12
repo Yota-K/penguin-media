@@ -1,0 +1,39 @@
+#footer {
+    margin-top: 50px;
+    border-top: 1px solid gray;
+    .footer-widget-areas {
+        display: flex;
+        margin-top: 30px;
+        @include media_queries(sm_size) {
+            display: block;
+        }
+        .footer-widget {
+            width: calc(100% / 3);
+            margin: 0 15px;
+            @include media_queries(sm_size) {
+                width: 100%;
+                margin: 0;
+            }
+        }
+    }
+    #footer-menu {
+        margin-top: 20px;
+        ul {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            width: 80%;
+            margin: 0 10%;
+            li {
+                list-style: none;
+                padding: 8px;
+            }
+        }
+    }
+    .copy-right {
+        margin: 15px 0;
+        padding: 10px;
+        text-align: center;
+        font-size: 0.8rem;
+    }
+}
