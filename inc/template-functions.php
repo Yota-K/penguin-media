@@ -58,14 +58,3 @@ function sns_buttons() {
       </ul>
     <?php
 }
-
-// ページネーションのカスタマイズ
-function custom_pagination($template) {
-    $template = '
-        <nav class="navigation %1$s" role="navigation" aria-label="%4$s">
-            <div class="nav-links">%3$s</div>
-        </nav>';
-
-    return $template;
-}
-add_action('navigation_markup_template', 'custom_pagination');

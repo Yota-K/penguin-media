@@ -24,15 +24,17 @@
                         </div>
                     </a>
                 <?php endwhile ?>
+                <?php 
+                    $get_the_pagination = get_the_posts_pagination(array(
+                        'prev_text' => '←',
+                        'next_text' => '→',
+                        'type' => 'list',
+                    ));
+                    echo preg_replace('/<h2 class="screen-reader-text">(.+)<\/h2>/ui', '', $get_the_pagination);
+                ?>
                 <?php else: ?>
                     <p>記事がありません</p>
             <?php endif ?>
-            <?php the_posts_pagination(array(
-                    'prev_text' => '←',
-                    'next_text' => '→',
-                    'type' => 'list',
-                )); 
-            ?>
         </div>
         <?php get_sidebar(); ?>
         </div>
