@@ -2,6 +2,7 @@
     // トップ
     .top-main-container {
         display: flex;
+        justify-content: center;
         .post-list {
             width: 800px;
             @include media_queries(sm_size) {
@@ -15,10 +16,13 @@
     // サイドバー
     #sidebar {
         width: 380px;
-        margin-left: 30px;
+        margin-left: 130px;
         @include media_queries(sm_size) {
             width: 100%;
             margin: 0;
+        }
+        @include media_queries(xs_size) {
+            margin-left: 0px;
         }
     }
     .date {
@@ -26,7 +30,7 @@
     }
     // ページネーション
     .page-numbers {
-        margin-top: 30px;
+        margin: 30px 0;
         list-style: none;
         text-align: center;
         li {
@@ -55,16 +59,22 @@
     .post-list {
         .post-box {
             display: flex;
-            padding: 15px;
+            margin: 20px 0;
+            padding: 0.5rem;
             transition: all 0.4s;
+            width: 100%;
             &:hover {
                 background: $key_color_4;
                 transition: all 0.4s;
             }
             .post-thumbnail {
-                .no-image {
-                    width: 138px;
-                    height: auto;
+                img {
+                    width: 246px;
+                    height: 138px;
+                    @include media_queries(xs_size) {
+                        width: 120px;
+                        height: 80px;
+                    }
                 }
             }
             .post-info {
@@ -72,6 +82,9 @@
                 margin-left: 20px;
                 h2 {
                     font-size: 1.2rem;
+                    @include media_queries(xs_size) {
+                        font-size: 1rem;
+                    }
                 }
             }
         }

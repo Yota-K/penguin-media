@@ -4,24 +4,26 @@
     left: 0;
     width: 100%;
     box-shadow: 0 2px 4px 0 rgba(0,0,0,.1);
-    margin-bottom: 50px;
     background: #fff;
     z-index: 9999;
     .header-container {
         position: relative;
-        padding: 0 40px;
+        padding: 10px 40px;
         .site-title {
             display: inline-block;
             padding-top: 10px;
             font-size: 1.5rem;
             font-weight: bold;
+            a {
+                display: block;
+            }
         }
         .site-description {
             padding-bottom: 10px;
         }
         .nav-button {
             position: absolute;
-            top: 25px;
+            top: 30px;
             right: 40px;
             z-index: 10000;
             .menu-trigger {
