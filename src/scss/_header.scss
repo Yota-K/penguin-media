@@ -12,10 +12,17 @@
         .site-title {
             display: inline-block;
             padding-top: 10px;
-            font-size: 1.5rem;
             font-weight: bold;
             a {
                 display: block;
+                margin: 10px 0;
+                font-size: 1.5rem;
+                @include media_queries(sm_size) {
+                    font-size: 1rem;
+                }
+                @include media_queries(xs_size) {
+                    margin-right: 35px;
+                }
             }
         }
         .site-description {
