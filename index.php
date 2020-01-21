@@ -2,6 +2,9 @@
     <main id="main" class="container">
         <div class="top-main-container">
             <div class="post-list">
+            <?php if (!is_paged() && is_home() && is_active_sidebar('top-widget-1')): ?>
+                <?php dynamic_sidebar('top-widget-1'); ?>
+            <?php endif ?>
             <?php if (have_posts()): ?>
                 <?php while(have_posts()): the_post(); ?>
                     <a href="<?php the_permalink(); ?>" class="post-box">
@@ -34,6 +37,9 @@
                 ?>
                 <?php else: ?>
                     <p>記事がありません</p>
+            <?php endif ?>
+            <?php if (!is_paged() && is_home() && is_active_sidebar('top-widget-2')): ?>
+                <?php dynamic_sidebar('top-widget-2'); ?>
             <?php endif ?>
         </div>
         <?php get_sidebar(); ?>

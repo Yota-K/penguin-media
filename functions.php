@@ -86,6 +86,26 @@ function penguin_media_widgets_init() {
         ));
 
         register_sidebar(array(
+            'name' => 'トップウィジェットエリア1',
+            'id' => 'top-widget-1',
+            'description' => 'トップページ上部のウィジェットエリアです。',
+            'before_widget' => '<div class="widget top-widget">',
+            'after_widget' => '</div>',
+            'before_title' => '<h2 class="widget-title">',
+            'after_title' => '</h2>',
+        ));
+
+        register_sidebar(array(
+            'name' => 'トップウィジェットエリア2',
+            'id' => 'top-widget-2',
+            'description' => 'トップページ下部のウィジェットエリアです。',
+            'before_widget' => '<div class="widget top-bottom-widget">',
+            'after_widget' => '</div>',
+            'before_title' => '<h2 class="widget-title">',
+            'after_title' => '</h2>',
+        ));
+
+        register_sidebar(array(
             'name' => 'フッターウィジェット１',
             'id' => 'footer-widget-1',
             'description' => 'フッター下部（左側）のウィジェットエリアです。',
