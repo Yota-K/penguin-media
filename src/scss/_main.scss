@@ -35,11 +35,13 @@
         text-align: center;
         li {
             display: inline-block;
-            width: 40px;
+            width: 35px;
+            height: 35px;
+            padding: 0 5px;
             .page-numbers {
                 display: block;
                 margin: 0 2px;
-                padding: 0.4rem 0;
+                padding: 5px;
                 background: #fff;
                 border-radius: 50%;
                 color: gray;
@@ -104,10 +106,15 @@
             background: #f9f9f9;
             box-shadow: 0 1.5px 2.4px rgba(0, 0, 0, 0.15);
             ul {
+                background: none;
+                border: none;
+                margin: 0;
                 margin-left: 15px;
                 padding: 5px;
                 li {
+                    line-height: 180%;
                     a {
+                        color: $font_color;
                         &:hover {
                             text-decoration: underline;
                         }
@@ -117,6 +124,8 @@
         }
         // snsボタン
         .share {
+            background: #f3f3f3;
+            border: none;
             li {
                 list-style: none;
                 a {
@@ -141,6 +150,7 @@
             background: #f3f3f3;
             margin-top: 20px;
             padding: 10px;
+            z-index: 10;
             @include media_queries(sm_size) {
                 display: none;
             }
@@ -184,15 +194,25 @@
         }
         .entry-content {
             padding: 0 15px;
+            margin-bottom: 420px;
             @include media_queries(sm_size) {
                 padding: 0 2rem;
+                margin-bottom: 300px;
             }
             @include media_queries(xs_size) {
                 padding: 0 1.2rem;
+                margin-bottom: 150px;
+            }
+            a {
+                color: $key_color_3;
             }
             p {
                 margin: 24px 0;
                 line-height: 35px;
+            }
+            img {
+                width: 85%;
+                height: auto;
             }
         }
     }

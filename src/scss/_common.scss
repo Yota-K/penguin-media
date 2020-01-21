@@ -16,6 +16,41 @@ a {
     text-decoration: none;
 }
 
+table {
+	border-collapse: collapse;
+	border: 1px solid gray;
+	padding: 0.5rem;
+	margin: 20px 0;
+	width:100%;
+    th {
+        border: 1px solid gray;
+        padding: 0.6rem;
+    }
+    td {
+        border: 1px solid gray;
+        padding: 0.6rem;
+        &:nth-child(2n+1) {
+            font-weight: bold;
+            width: 30%;
+        }
+    }
+}
+
+ul,ol {
+    li {
+        line-height: 180%;
+    }
+}
+
+iframe {
+	width: 500px;
+	height: 300px;
+    @include media_queries(xs_size) {
+		width: 80%;
+		height: auto;
+    }
+}
+
 // 共通のwrapper
 #content-wrapper {
     position: relative;

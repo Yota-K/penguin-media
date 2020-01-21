@@ -1,6 +1,9 @@
 #footer {
+    position: relative;
+    background: #fff;
     margin-top: 150px;
     border-top: 1px solid gray;
+    z-index: 20;
     @include media_queries(xs_size) {
         margin-top: 110px;
     }
