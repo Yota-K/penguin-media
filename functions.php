@@ -49,7 +49,6 @@ function penguin_media_setup() {
 }
 add_action( 'after_setup_theme', 'penguin_media_setup' );
 
-
 /* ------------------------------
 ウィジェットの定義
 ------------------------------ */
@@ -138,6 +137,31 @@ function penguin_media_widgets_init() {
     }
 }
 add_action( 'widgets_init', 'penguin_media_widgets_init' );
+
+/* ------------------------------
+投稿一覧の横にアイキャッチを表示
+------------------------------ */
+
+// アイキャッチ用のカラムを追加
+function add_column($column) {
+    $column['thumbnail'] = 'アイキャッチ';
+    return $column;
+}
+add_filter('manage_posts_columns', 'add_column');
+
+// アイキャッチを表示
+function add_postlist_eyecatch($column, $post_id) {
+    if ($column === 'thumbnail') {
+        $thumbnail = get_the_post_thumbnail($post_id, array(100, 100), 'thumbnail');
+
+        if (empty($thumbnail)) {
+            echo 'ー';
+        }
+
+        echo $thumbnail;
+    }
+}
+add_filter('manage_posts_custom_column', 'add_postlist_eyecatch', 10, 2);
 
 // bundleしたjsとcssを読み込む
 function penguin_media_scripts() {
