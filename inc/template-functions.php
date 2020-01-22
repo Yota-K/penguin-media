@@ -58,3 +58,67 @@ function sns_buttons() {
       </ul>
     <?php
 }
+
+// 関連記事を表示
+function related_posts($post_id) {
+    $categories = get_the_category($post_id);
+    $category_id = array();
+
+    foreach ($categories as $category) {
+        array_push($category_id, $category->cat_ID);
+    }
+
+    $args = array(
+        'post__not_in' => array($post_id),
+        'posts_per_page' => 3,
+        'category__in' => $category_id,
+        'orderby' => 'rand',
+    );
+
+    $query_instance = new WP_Query($args);
+    ?>
+        <div class="related-posts">
+            <h2 class="related-heading">他の人はこんな記事も読んでいます</h2>
+            <?php if($query_instance->have_posts()): ?>
+                <?php while($query_instance->have_posts()): $query_instance->the_post(); ?>
+                    <div class="related-post">
+                        <div class="related-thumbnail">
+                            <?php if(has_post_thumbnail()): ?>
+                                <?php the_post_thumbnail(array(100, 100)); ?>
+                            <?php else: ?>
+                                <?php echo '<img class="no-image" src="'. get_template_directory_uri() .'/images/no-image.png">'; ?>
+                            <?php endif ?>
+                        </div>
+                        <h3 class="related-title">
+                            <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+                        </h3>
+                    </div>
+                <?php endwhile ?>
+            <?php endif ?>
+        </div>
+    <?php
+}
+
+// パンくず
+function penguin_breadcrumb() {
+    $site_title = get_bloginfo('name');
+    $site_url = site_url();
+
+    if (is_home() || is_front_page()) {
+        return false;
+    }
+
+    echo '<div id="breadcrumb">' . '<ul>';
+    echo '<li>' . '<a href="'. $site_url .'">'. $site_title .'</a>' . '</li>';
+
+    //else if (is_category()) {
+    //    $cat = get_queried_object();
+    //    $cat_id = $cat->parent;
+    //    $cat_list = [];
+
+
+    //}
+    //else if (is_single()) {}
+
+    echo '</ul>' . '</div>';
+}

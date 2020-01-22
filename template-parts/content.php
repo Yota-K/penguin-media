@@ -2,6 +2,7 @@
     <div class="share-buttons-fixed">
         <?php sns_buttons(); ?>
     </div>
+    <?php penguin_breadcrumb(); ?>
     <div class="post-header">
         <div class="post-title">
             <?php if (is_singular()): ?>
@@ -34,6 +35,7 @@
                 'after'  => '</div>',
             ));
 		?>
+        <?php related_posts($post->ID); ?>
     <div class="share-buttons">
         <?php sns_buttons(); ?>
     </div>
