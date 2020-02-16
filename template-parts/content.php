@@ -16,28 +16,32 @@
         </div>
     </div>
 
-	<div class="entry-content">
-    <div class="single-post-thumbnail">
-    <?php 
-        if (has_post_thumbnail()) {
-            the_post_thumbnail();
-        }
-        else {
-            echo '<img class="no-image" src="'. get_template_directory_uri() .'/images/no-image.png">';
-        }
-    ?>
+    <div id="content">
+	    <div class="entry-content">
+            <div class="single-post-thumbnail">
+            <?php 
+                if (has_post_thumbnail()) {
+                    the_post_thumbnail();
+                }
+                else {
+                    echo '<img class="no-image" src="'. get_template_directory_uri() .'/images/no-image.png">';
+                }
+            ?>
+            </div>
+                <div id="penguin-toc"></div>
+	        	<?php
+                    the_content();
+                    wp_link_pages(array(
+                        'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'penguin_media' ),
+                        'after'  => '</div>',
+                    ));
+	        	?>
+	    </div>
+        <div class="content-info">
+            <?php related_posts($post->ID); ?>
+            <div class="share-buttons">
+                <?php sns_buttons(); ?>
+            </div>
+        </div>
     </div>
-        <div id="penguin-toc"></div>
-		<?php
-            the_content();
-            wp_link_pages(array(
-                'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'penguin_media' ),
-                'after'  => '</div>',
-            ));
-		?>
-        <?php related_posts($post->ID); ?>
-    <div class="share-buttons">
-        <?php sns_buttons(); ?>
-    </div>
-	</div>
 </article>
