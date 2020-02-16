@@ -16,25 +16,6 @@ a {
     text-decoration: none;
 }
 
-table {
-	border-collapse: collapse;
-	border: 1px solid gray;
-	padding: 0.5rem;
-	margin: 20px 0;
-	width:100%;
-    th {
-        border: 1px solid gray;
-        padding: 0.6rem;
-    }
-    td {
-        border: 1px solid gray;
-        padding: 0.6rem;
-        &:nth-child(2n+1) {
-            font-weight: bold;
-            width: 30%;
-        }
-    }
-}
 
 ul,ol {
     li {
@@ -46,15 +27,11 @@ iframe {
     max-width: 100%;
 }
 
-// 共通のwrapper
-#content-wrapper {
-    position: relative;
-    top: 120px;
-    @include media_queries(xs_size) {
-        top: 42px;
-    }
+table {
+    border-collapse: collapse;
 }
 
+// container
 .container {
     width: 90%;
     margin: auto;

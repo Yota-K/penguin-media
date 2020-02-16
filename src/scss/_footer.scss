@@ -17,13 +17,13 @@
             width: calc(100% / 3);
             margin: 0 15px;
             @include media_queries(sm_size) {
-                width: 100%;
-                margin: 0;
+                width: 90%;
+                margin: auto;
             }
         }
     }
     #footer-menu {
-        margin-top: 20px;
+        margin-top: 80px;
         ul {
             display: flex;
             flex-wrap: wrap;

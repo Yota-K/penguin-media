@@ -39,13 +39,17 @@
                     }
                 }
                 .swiper-txt {
-                    padding: 24px 24px 0;
+                    margin-left: 20px;
                     @include media_queries(xs_size) {
-                        padding: 14px 14px 0;
+                        padding: 0 14px;
+                        margin-left: 0;
+                        border-bottom: 1px solid $key_color_2;
                     }
                     h2 {
-                        width: 80%;
-                        margin: 0 20% 30px 0;
+                        width: 90%;
+                        @include media_queries(sm_size) {
+                            width: 100%;
+                        }
                         a {
                             background: linear-gradient(to top,$key_color_3 4px,#fff 4px);
                             line-height: 180%;
@@ -57,11 +61,13 @@
                         }
                     }
                     .post-info {
+                        margin-top: 20px;
                         a {
                             @include category_button();
                         }
                         .post-published {
                             @include post_date();
+                            padding-left: 0;
                         }
                     }
                 }
@@ -69,7 +75,7 @@
         }
         .swiper-pagination-bullets {
             position: static;
-            margin-top: 15px;
+            margin-top: 10px;
             .swiper-pagination-bullet {
                 width: 12px;
                 height: 12px;
