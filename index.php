@@ -2,9 +2,11 @@
     <main id="main" class="container">
         <div class="top-main-container">
             <div class="post-list">
-            <?php if (!is_paged() && is_home() && is_active_sidebar('top-widget-1')): ?>
-                <?php dynamic_sidebar('top-widget-1'); ?>
-            <?php endif ?>
+            <div id="top-widget-area">
+                <?php if (!is_paged() && is_home() && is_active_sidebar('top-widget-1')): ?>
+                    <?php dynamic_sidebar('top-widget-1'); ?>
+                <?php endif ?>
+            </div>
             <?php if (have_posts()): ?>
                 <?php while(have_posts()): the_post(); ?>
                     <a href="<?php the_permalink(); ?>" class="post-box">
