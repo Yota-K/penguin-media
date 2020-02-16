@@ -1,26 +1,23 @@
 #header {
-    position: fixed;
-    top: 0;
-    left: 0;
     width: 100%;
     box-shadow: 0 2px 4px 0 rgba(0,0,0,.1);
     background: #fff;
     z-index: 9999;
     .header-container {
         position: relative;
-        padding: 10px 40px;
+        padding: 0 32px;
         .site-title {
             display: inline-block;
             font-weight: bold;
             a {
                 display: block;
-                margin: 10px 0;
+                padding: 10px 0;
                 font-size: 1.5rem;
                 @include media_queries(sm_size) {
                     font-size: 1rem;
                 }
                 @include media_queries(xs_size) {
-                    margin-right: 35px;
+                    width: 90%;
                 }
             }
         }
@@ -33,15 +30,13 @@
         }
         .nav-button {
             position: absolute;
-            top: 30px;
-            right: 40px;
-            z-index: 10000;
+            top: 15px;
+            right: 10px;
             .menu-trigger {
                 position: relative;
                 width: 30px;
                 height: 20px;
                 display: inline-block;
-                transition: all 0.4s;
                 span {
                     position: absolute;
                     left: 0;
@@ -58,20 +53,6 @@
                     }
                     &:nth-of-type(3) {
                         bottom: 0;
-                    }
-                }
-            }
-            .btn-active {
-                span {
-                    transition: all 0.4s;
-                    &:nth-of-type(1) {
-                        transform: translateY(11px) rotate(-315deg);
-                    }
-                    &:nth-of-type(2) {
-                        opacity: 0;
-                    }
-                    &:nth-of-type(3) {
-                        transform: translateY(-6px) rotate(315deg);
                     }
                 }
             }

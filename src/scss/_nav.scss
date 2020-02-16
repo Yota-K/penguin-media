@@ -1,47 +1,82 @@
 #grobal-nav {
     position: fixed;
     top: 0;
-    left: 100vw;
+    left: 0;
     width: 100vw;
     height: 100vh;
-    transition: all 0.4s;
-    background: #fff;
+    transition: opacity .3s ease-in-out,visibility .3s ease-in-out;
+    opacity: 0;
+    background: rgba(0,0,0,0.9);
+    visibility: hidden;
+    overflow-y: scroll;
     z-index: 9999;
-    h2 {
-        margin: 40px 0 20px;
+    .widget-title,.menu-title {
+        margin: 40px 0 30px;
+        background: $key_color_3;
+        color: #fff;
+        border: none;
+        padding: 0.5rem;
     }
-    .nav-container {
-        margin: 100px 0;
-        #site-navigation {
-            width: 80vw;
-            margin: 0 10vw;
-            #header-menu {
-                margin-top: 40px;
+    .nav-wrapper {
+        background: #fff;
+        width: 90vw;
+        min-height: 80vh;
+        margin: 50px 5vw;
+        .nav-container {
+            padding: 0 14px;
+            #close-btn {
+                width: 100%;
+                padding: 20px 0;
+                border: none;
+                background: #fff;
+                color: gray;
+                font-size: 2rem;
+                font-weight: 600;
+                cursor: pointer;
+                transition: all 0.4s;
+                &:hover {
+                    color: $font_color;
+                    transition: all 0.4s;
+                }
+            }
+            #site-navigation {
+                width: 90%;
+                margin: 40px 5% 0;
                 li {
                     list-style: none;
                     a {
                         color: $font_color;
-                        font-size: 2rem;
+                    }
+                }
+                .search-form {
+                    display: flex;
+                    width: 100%;
+                    .search-field {
+                        width: 90%;
+                        height: 44px;
+                        box-sizing: border-box;
+                        border: 1px solid $key_color_2;
+                        font-size: 0.9rem;
+                    }
+                    .search-submit {
+                        background: $key_color_3;
+                        width: 44px;
+                        height: 44px;
+                        color: #fff;
+                        font-size: 1.5rem;
+                        border: none;
+                        cursor: pointer;
                     }
                 }
             }
-            .search-form {
-                .search-field {
-                    width: 50vw;
-                    height: 40px;
-                    font-size: 1.4rem;
-                }
-                .search-submit {
-                    padding: 6px;
-                    margin-left: 10px;
-                    font-size: 1.2rem;
-                }
+            #header-menu {
+                margin-top: 30px
             }
         }
     }
 }
 
 .nav-active {
-    left: 0 !important;
-    transition: all 0.4s;
+    visibility: visible !important;
+    opacity: 1 !important;
 }

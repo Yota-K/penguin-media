@@ -169,20 +169,6 @@ function penguin_media_scripts() {
 }
 add_action( 'wp_enqueue_scripts', 'penguin_media_scripts' );
 
-// 管理バーの重なりを防ぐ
-function adminbar_fixed_clear() {
-    if ( is_user_logged_in() ) {
-        ?>
-        <script>
-        jQuery(function($) {
-            const adminBar = $('#wpadminbar').height();
-            $('#header').css('margin-top', adminBar + 'px');
-        });
-        </script>
-    <?php 
-    }
-}
-
 // archive.phpーの：を削除
 function custom_archive_title($title) {
     if ( is_category() ) {
