@@ -17,7 +17,7 @@
             <div class="swiper-img">
                 <?php 
                     if (has_post_thumbnail()) {
-                        the_post_thumbnail();
+                        the_post_thumbnail(array(350, 240));
                     }
                     else {
                         echo '<img class="no-image" src="'. get_template_directory_uri() .'/images/no-image.png">';
@@ -26,7 +26,9 @@
             </div>
             <div class="swiper-txt">
                 <h2>
-                    <a href="<?php the_permalink(); ?>" class="swiper-title"><?php the_title(); ?></a>
+                    <a href="<?php the_permalink(); ?>" class="swiper-title">
+                    <?php title_limit($post->post_title); ?>
+                    </a>
                 </h2>
                 <div class="post-info">
                     <?php get_post_info($post->ID); ?>

@@ -1,81 +1,76 @@
 #top-slider {
-    position: relative;
-    z-index: 9998;
-    margin-bottom: 60px;
+    margin: 30px 0;
     .swiper-container {
-        padding-top: 30px;
-        @include media_queries(sm_size) {
-            padding-top: 40px;
-        }
+        height: 300px;
         @include media_queries(xs_size) {
-            padding-top: 45px;
+            height: 500px;
         }
+        box-shadow: 2px 2px 4px 1px rgba(0, 0, 0, 0.16);
         @include media_queries(minimun_size) {
             padding-top: 80px;
         }
-        .swiper-slide {
-            display: inline-block;
-            width: 90% !important;
-            margin: 0 5%;
-            @include media_queries(xs_size) {
-                width: 100% !important;
-                margin: 0;
-            }
-            .slide-container {
-                display: flex;
+        .swiper-wrapper {
+            .swiper-slide {
+                width: 90% !important;
+                margin: 0 5%;
                 @include media_queries(xs_size) {
-                    display: block;
+                    width: 100% !important;
+                    margin: 0;
                 }
-                .swiper-img {
-                    img {
-                        width: 420px;
-                        height: auto;
-                        @include media_queries(sm_size) {
-                            width: 320px;
-                        }
-                        @include media_queries(xs_size) {
-                            width: 100%;
-                        }
-                    }
-                }
-                .swiper-txt {
-                    margin-left: 20px;
+                .slide-container {
+                    display: flex;
+                    background: #fff;
+                    padding: 12px;
                     @include media_queries(xs_size) {
-                        padding: 0 14px;
-                        margin-left: 0;
-                        border-bottom: 1px solid $key_color_2;
+                        display: block;
+                        padding: 0;
                     }
-                    h2 {
-                        width: 90%;
-                        @include media_queries(sm_size) {
-                            width: 100%;
+                    .swiper-img {
+                        img {
+                            width: 350px;
+                            height: 240px;
+                            @include media_queries(sm_size) {
+                                width: 320px;
+                            }
+                            @include media_queries(xs_size) {
+                                width: 100%;
+                            }
                         }
-                        a {
-                            background: linear-gradient(to top,$key_color_3 4px,#fff 4px);
-                            line-height: 180%;
-                        }
+                    }
+                    .swiper-txt {
+                        margin-left: 20px;
                         @include media_queries(xs_size) {
-                            width: 100%;
-                            margin: 0 0 30px 0;
-                            font-size: 1.3rem;
+                            padding: 0 14px;
+                            margin-left: 0;
+                            border-bottom: 1px solid $key_color_2;
                         }
-                    }
-                    .post-info {
-                        margin-top: 20px;
-                        a {
-                            @include category_button();
+                        h2 {
+                            a {
+                                background: linear-gradient(to top,$key_color_3 4px,#fff 4px);
+                                line-height: 180%;
+                            }
+                            @include media_queries(xs_size) {
+                                width: 100%;
+                                min-height: 120px;
+                                font-size: 1.3rem;
+                            }
                         }
-                        .post-published {
-                            @include post_date();
-                            padding-left: 0;
+                        .post-info {
+                            margin-top: 20px;
+                            a {
+                                @include category_button();
+                            }
+                            .post-published {
+                                @include post_date();
+                                padding-left: 0;
+                            }
                         }
                     }
                 }
             }
         }
         .swiper-pagination-bullets {
-            position: static;
-            margin-top: 10px;
+            bottom: 5px;
             .swiper-pagination-bullet {
                 width: 12px;
                 height: 12px;
