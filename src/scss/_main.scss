@@ -1,4 +1,18 @@
 #main {
+    // タイトル
+    .post-header {
+        margin: 20px 0 40px;
+        padding: 20px;
+        border: 1px solid #ddd;
+    }
+    // タグ
+    .tagcloud {
+        a {
+            @include category_button();
+            font-size: 12px !important;
+            margin: 8px;
+        }
+    }
     // トップ
     .top-main-container {
         display: flex;
@@ -8,46 +22,49 @@
             width: 90%;
             margin: auto;
         }
-        // 投稿一覧
-        .post-list {
-            width: 800px;
-            @include media_queries(sm_size) {
-                width: 100%;
-            }
-            .post-box {
-                display: flex;
-                margin: 20px 0;
-                padding: 0.5rem;
-                transition: all 0.4s;
-                width: 100%;
-                box-sizing: border-box;
-                &:hover {
-                    background: $key_color_4;
-                    transition: all 0.4s;
-                }
-                .post-thumbnail {
-                    img {
-                        width: 246px;
-                        height: auto;
-                        @include media_queries(xs_size) {
-                            width: 120px;
-                        }
-                    }
-                }
-                .post-info {
-                    width: 70%;
-                    margin-left: 20px;
-                    h2 {
-                        font-size: 1.2rem;
-                        @include media_queries(xs_size) {
-                            font-size: 1rem;
-                        }
-                    }
-                }
-            }
-        }
         @include media_queries(sm_size) {
             display: block;
+        }
+    }
+    // 投稿一覧
+    .post-list {
+        width: 800px;
+        @include media_queries(sm_size) {
+            width: 100%;
+        }
+        .post-box {
+            display: flex;
+            margin: 20px 0;
+            padding: 0.5rem;
+            transition: all 0.4s;
+            width: 100%;
+            box-sizing: border-box;
+            &:hover {
+                background: $key_color_4;
+                transition: all 0.4s;
+            }
+            .post-thumbnail {
+                img {
+                    width: 246px;
+                    max-height: 138px;
+                    @include media_queries(xs_size) {
+                        width: 120px;
+                    }
+                }
+                .no-image {
+                    height: 138px;
+                }
+            }
+            .post-info {
+                width: 70%;
+                margin-left: 20px;
+                h2 {
+                    font-size: 1.2rem;
+                    @include media_queries(xs_size) {
+                        font-size: 1rem;
+                    }
+                }
+            }
         }
     }
     // ページネーション
@@ -95,7 +112,14 @@
     .archive-page {
         .post-header {
             text-align: center;
-            margin-bottom: 40px;
+        }
+    }
+    // サイトマップ
+    #penguin-sitemap {
+        margin: 30px 0;
+        padding: 12px;
+        .pages {
+            margin-top: 20px;
         }
     }
 }

@@ -27,6 +27,43 @@
     @include media_queries(sm_size) {
         width: 100%;
     }
+    // パンくず
+    #breadcrumb {
+        margin: 15px 10px 0;
+        line-height: 190%;
+        li {
+            position: relative;
+            display: inline-block;
+            font-size: 14px;
+            padding-right: 14px;
+            @include media_queries(xs_size) {
+                font-size: 12px;
+            }
+            @include media_queries(minimum_size) {
+                font-size: 10px;
+            }
+            .fa-home {
+                color: gray;
+                margin-right: 5px;
+                vertical-align: text-top;
+            }
+            &::after {
+                position: absolute;
+                content: "＞";
+                top: 0px;
+                right: -1px;
+                padding: 0 2px;
+            }
+            &:last-of-type {
+                &::after {
+                    content: "" !important;
+                }
+            }
+            a {
+                color: $key_color_3;
+            }
+        }
+    }
     // snsボタン(PC時)
     .share-buttons-fixed {
         position: fixed;
@@ -42,8 +79,6 @@
     }
     // 記事タイトル
     .post-header {
-        border: 1px solid #ddd;
-        padding: 20px;
         .post-title {
             font-size: 1.5rem;
             line-height: 200%;
@@ -75,7 +110,7 @@
         // 記事部分
         .entry-content {
             // 目次
-            #penguin-toc {
+            .toc-container {
                 border-top: 6px solid $key_color_3;
                 margin: 30px 0 50px;
                 padding: 14px;
