@@ -1,17 +1,21 @@
 window.addEventListener('DOMContentLoaded', () => {
+    // 開くための処理
     const grobalNav = document.getElementById('grobal-nav');
     const navBtn = document.getElementsByClassName('menu-trigger')[0];
 
-    // 開くためのボタン
     navBtn.addEventListener('click', (e) => {
         grobalNav.classList.toggle('nav-active');
         e.preventDefault();
     })
 
-    const closeBtn = document.getElementById('close-btn');
+    // 閉じるための処理
+    const closeBtns = document.querySelectorAll('.close-btn');
 
-    closeBtn.addEventListener('click', (e) => {
-        grobalNav.classList.toggle('nav-active');
-        e.preventDefault();
+    closeBtns.forEach(closeBtn => {
+        closeBtn.addEventListener('click', (e) => {
+            grobalNav.classList.toggle('nav-active');
+            e.preventDefault();
+        })
     })
+
 })

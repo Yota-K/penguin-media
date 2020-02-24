@@ -1,7 +1,7 @@
 <div id="grobal-nav">
     <div class="nav-wrapper">
     <div class="nav-container">
-        <button id="close-btn">
+        <button class="close-btn">
             <i class="fas fa-times"></i>
             <span class="text">CLOSE</span>
         </button>
@@ -22,7 +22,7 @@
                 <?php dynamic_sidebar('nav-widget-2'); ?>
             <?php endif ?>
         </nav>
-        <button id="close-btn">
+        <button class="close-btn">
             <i class="fas fa-times"></i>
             <span class="text">CLOSE</span>
         </button>
