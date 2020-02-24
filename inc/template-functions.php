@@ -22,6 +22,20 @@ function penguin_media_pingback_header() {
 }
 add_action('wp_head', 'penguin_media_pingback_header');
 
+// 記事タイトルを32文字以内で表示
+function title_limit( $post_title ) {
+    $str_length = mb_strlen( $post_title );
+
+    if ( $str_length > 33 ) {
+        $title = mb_substr( $post_title, 0, 33 );
+        echo $title . '...';
+    }
+    else {
+        echo $post_title;
+    }
+
+}
+
 // 投稿日時とカテゴリーを取得
 function get_post_info( $post_id ) {
         $get_the_date = get_the_date('Y.m.d', $post_id);
@@ -102,23 +116,117 @@ function related_posts($post_id) {
 // パンくず
 function penguin_breadcrumb() {
     $site_title = get_bloginfo('name');
-    $site_url = site_url();
-
-    if (is_home() || is_front_page()) {
-        return false;
-    }
+    $site_url = home_url();
 
     echo '<div id="breadcrumb">' . '<ul>';
-    echo '<li>' . '<a href="'. $site_url .'">'. $site_title .'</a>' . '</li>';
+    echo '<li>' . '<i class="fa fa-home" aria-hidden="true"></i>' . '<a href="'. $site_url .'">'. $site_title .'</a>' . '</li>';
 
-    //else if (is_category()) {
-    //    $cat = get_queried_object();
-    //    $cat_id = $cat->parent;
-    //    $cat_list = [];
+    if ( is_home() || is_front_page() ) {
+        return false;
+    }
+    else if ( is_category() ) {
+        $cat = get_queried_object();
 
+        $cat_id = $cat->cat_ID;
+        $parent_id = $cat->parent;
+        $parent_index = 0;
 
-    //}
-    //else if (is_single()) {}
+        // 親カテゴリーのみの場合
+        if ($parent_id === $parent_index) {
+            $category = get_category($cat_id);
+            $category_link = get_category_link($cat_id);
+
+            echo '<li>' . '<a href="'. $category_link .'">'. $category->name .'</a>' . '</li>';
+        }
+        // 子カテゴリーがある場合
+        else {
+            $categories_str = get_category_parents($cat_id);
+            $categories = explode('/', $categories_str);
+            $remove_last_str = array_pop($categories);
+
+            foreach ($categories as $category_name) {
+                $category_id = get_cat_ID($category_name);
+                $category_link = get_category_link($category_id);
+
+                echo '<li>' . '<a href="'. $category_link .'">'. $category_name .'</a>' . '</li>';
+            }
+
+        }
+    }
+    else if ( is_single() ) {
+        $categories = get_the_category();
+        $category_link = get_category_link($categories[0]->cat_ID);
+        $category_name = $categories[0]->name;
+
+        echo '<li>' . '<a href="'. $category_link .'">'. $category_name .'</a>' . '</li>';
+
+        // 子カテゴリーがある場合
+        foreach($categories as $category) {
+            $parent_index = 0;
+
+            if ($category->parent !== $parent_index) {
+                $category_link = get_category_link($category->cat_ID);
+
+                echo '<li>' . '<a href="'. $category_link .'">'. $category->name .'</a>' . '</li>';
+            }
+        }
+    }
+    else if( is_page() ) {
+        echo the_title('<li>', '</li>');
+    }
+    else if ( is_archive() ) {
+        echo the_archive_title('<li>', '</li>');
+    }
+    else if ( is_404() ) {
+        echo '<li>ページが見つかりません</li>';
+    }
 
     echo '</ul>' . '</div>';
+}
+
+ // サイトマップ
+function penguin_sitemap() {
+    $site_title = get_bloginfo('name');
+
+    $categories_args = array(
+        'orderby' => 'name',
+        'order' => 'ASC',
+    );
+    $categories = get_categories($categories_args);
+
+    $pages = get_pages();
+    ?>
+        <ul id="penguin-sitemap">
+            <li><a href="<?php echo home_url(); ?>"><?php echo $site_title; ?></a></li>
+            <ul class="categories">
+                <?php foreach($categories as $category): ?>
+                    <li>
+                        <a href="<?php echo get_category_link($category->term_id); ?>">
+                            <?php echo $category->name; ?>
+                        </a>
+                        <ul class="post-name">
+                            <?php 
+                                $posts_args = array(
+                                    'cat' => $category->term_id,
+                                );
+                                $query_instance = new WP_Query($posts_args);
+
+                                if ($query_instance->have_posts()):
+                                while($query_instance->have_posts()): $query_instance->the_post(); 
+                            ?>
+                                <li><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></li>
+                            <?php endwhile; endif; wp_reset_postdata(); ?>
+                        </ul>
+                    </li>
+                <?php endforeach; ?>
+            </ul>
+            <ul class="pages">
+                <?php foreach($pages as $page): ?>
+                    <li>
+                        <a href="<?php echo get_page_link($page->ID); ?>"><?php echo $page->post_title; ?></a>
+                    </li>
+                <?php endforeach; ?>
+            </ul>
+        </ul>
+    <?php
 }
