@@ -1,6 +1,7 @@
 <?php get_header(); ?>
     <main id="main" class="container">
     <div class="post-wrapper archive-page">
+        <?php penguin_breadcrumb(); ?>
         <div class="post-header">
             <h1><?php the_archive_title(''); ?></h1>
         </div>
