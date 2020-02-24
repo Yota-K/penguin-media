@@ -20,7 +20,6 @@ function penguin_media_setup() {
     // メニューの登録を行う
     register_nav_menus(array(
         'header-nav' => 'ヘッダーメニュー',
-        'footer-nav' => 'フッターメニュー',
     ));
 
 	add_theme_support( 'html5', array(

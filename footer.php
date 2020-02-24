@@ -14,19 +14,12 @@
         <?php endif ?>
     </div>
     </div>
-    <?php 
-        wp_nav_menu(array(
-            'theme_location' => 'footer-nav',
-            'menu_id' => 'footer-menu',
-        )); 
-    ?>
     <p class="copy-right">
         © <?php echo date('Y'); ?> 
         <?php echo get_bloginfo('name'); ?> All rights reserved.
     </p>
 </footer>
 <?php wp_footer(); ?>
-<?php adminbar_fixed_clear(); ?>
 <?php if (is_single()): ?>
     <script>
         jQuery(function($){
