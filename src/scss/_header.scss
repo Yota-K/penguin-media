@@ -24,6 +24,7 @@
         .custom-logo {
             width: 200px;
             height: auto;
+            padding: 12px;
         }
         .site-description {
             padding-bottom: 10px;
@@ -37,6 +38,15 @@
                 width: 30px;
                 height: 20px;
                 display: inline-block;
+                &::before {
+                    position: absolute;
+                    content: "MENU";
+                    top: 24px;
+                    left: 0;
+                    font-size: 0.6rem;
+                    font-weight: bold;
+                    color: gray;
+                }
                 span {
                     position: absolute;
                     left: 0;
