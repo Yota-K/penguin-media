@@ -162,11 +162,12 @@ function add_postlist_eyecatch($column, $post_id) {
 }
 add_filter('manage_posts_custom_column', 'add_postlist_eyecatch', 10, 2);
 
-// bundleしたjsとcssを読み込む
+// bundleしたjsとminify化したcssを読み込む
 function penguin_media_scripts() {
+    wp_enqueue_style('penguin-css', get_template_directory_uri() . '/dist/css/style.css');
     wp_enqueue_script('bundle-js', get_template_directory_uri() . '/dist/bundle.js', array(), '20191230');
 }
-add_action( 'wp_enqueue_scripts', 'penguin_media_scripts' );
+add_action('wp_enqueue_scripts', 'penguin_media_scripts');
 
 // archive.phpーの：を削除
 function custom_archive_title($title) {
