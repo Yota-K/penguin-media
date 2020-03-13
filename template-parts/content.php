@@ -20,7 +20,7 @@
 	    <div class="entry-content">
             <div class="single-post-thumbnail">
             <?php 
-                if (has_post_thumbnail()) {
+                if ( has_post_thumbnail() ) {
                     the_post_thumbnail();
                 }
                 else {
