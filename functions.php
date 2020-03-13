@@ -70,6 +70,7 @@ function penguin_media_content_width() {
 }
 add_action( 'after_setup_theme', 'penguin_media_content_width', 0 );
 
+// JetPackがインストールされている場合の処理?
 if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
